@@ -12,7 +12,7 @@ const mockProducts = [
     name: 'Перфоратор Bosch PBH 2100',
     price: 15990,
     category: 'Перфораторы',
-    image: '/img/47d371c5-b0e9-4a35-94a3-49043fc1f12d.jpg',
+    image: '/img/209857e9-63f1-4f85-a5e6-e3fe5705b1f7.jpg',
     description: 'Профессиональный перфоратор для бетона и кирпича'
   },
   {
@@ -20,7 +20,7 @@ const mockProducts = [
     name: 'Перфоратор Makita HR2470',
     price: 18990,
     category: 'Перфораторы',
-    image: '/img/47d371c5-b0e9-4a35-94a3-49043fc1f12d.jpg',
+    image: '/img/209857e9-63f1-4f85-a5e6-e3fe5705b1f7.jpg',
     description: 'Мощный перфоратор с функцией отбойного молотка'
   },
   {
@@ -28,7 +28,7 @@ const mockProducts = [
     name: 'Перфоратор DeWalt D25133K',
     price: 22990,
     category: 'Перфораторы',
-    image: '/img/47d371c5-b0e9-4a35-94a3-49043fc1f12d.jpg',
+    image: '/img/209857e9-63f1-4f85-a5e6-e3fe5705b1f7.jpg',
     description: 'Компактный перфоратор для точных работ'
   },
   {
@@ -36,7 +36,7 @@ const mockProducts = [
     name: 'Шлифмашина Bosch GWS 750',
     price: 6990,
     category: 'Шлифовальные машины',
-    image: '/img/5d0986b6-99af-4043-b6ef-7a638cd47c62.jpg',
+    image: '/img/742620fd-7bfe-4daf-8b93-bc42306470f8.jpg',
     description: 'Угловая шлифовальная машина 125 мм'
   },
   {
@@ -44,7 +44,7 @@ const mockProducts = [
     name: 'Шлифмашина Makita 9558HN',
     price: 8990,
     category: 'Шлифовальные машины',
-    image: '/img/5d0986b6-99af-4043-b6ef-7a638cd47c62.jpg',
+    image: '/img/742620fd-7bfe-4daf-8b93-bc42306470f8.jpg',
     description: 'Компактная угловая шлифмашина для металла'
   },
   {
@@ -52,7 +52,7 @@ const mockProducts = [
     name: 'Шлифмашина DeWalt DWE4157',
     price: 12990,
     category: 'Шлифовальные машины',
-    image: '/img/5d0986b6-99af-4043-b6ef-7a638cd47c62.jpg',
+    image: '/img/742620fd-7bfe-4daf-8b93-bc42306470f8.jpg',
     description: 'Мощная угловая шлифмашина 125 мм'
   },
   {
@@ -60,7 +60,7 @@ const mockProducts = [
     name: 'Отбойный молоток Bosch GSH 11 E',
     price: 45990,
     category: 'Обойные молотки',
-    image: '/img/e0f80b4f-35e8-4a49-9c76-d70fb6c6617b.jpg',
+    image: '/img/d80f71aa-3109-421b-8343-55b33f31b579.jpg',
     description: 'Профессиональный отбойный молоток для демонтажа'
   },
   {
@@ -68,7 +68,7 @@ const mockProducts = [
     name: 'Отбойный молоток Makita HM1203C',
     price: 52990,
     category: 'Обойные молотки',
-    image: '/img/e0f80b4f-35e8-4a49-9c76-d70fb6c6617b.jpg',
+    image: '/img/d80f71aa-3109-421b-8343-55b33f31b579.jpg',
     description: 'Мощный отбойный молоток с антивибрационной системой'
   }
 ];
