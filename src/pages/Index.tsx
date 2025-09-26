@@ -224,58 +224,58 @@ export default function Index() {
             <Button
               variant={selectedCategory === 'all' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('all')}
-              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+              className="h-20 flex flex-col items-center justify-center space-y-1 text-center px-2"
             >
-              <Icon name="Grid3X3" size={20} />
-              <span className="text-xs font-medium">Все товары</span>
+              <Icon name="Grid3X3" size={18} />
+              <span className="text-xs font-medium leading-tight">Все товары</span>
             </Button>
             <Button
               variant={selectedCategory === 'Перфораторы' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('Перфораторы')}
-              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+              className="h-20 flex flex-col items-center justify-center space-y-1 text-center px-2"
             >
-              <Icon name="Drill" size={20} />
-              <span className="text-xs font-medium">Перфораторы</span>
+              <Icon name="Drill" size={18} />
+              <span className="text-xs font-medium leading-tight">Перфораторы</span>
             </Button>
             <Button
               variant={selectedCategory === 'Шлифовальные машины' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('Шлифовальные машины')}
-              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+              className="h-20 flex flex-col items-center justify-center space-y-1 text-center px-2"
             >
-              <Icon name="CircleSlash" size={20} />
-              <span className="text-xs font-medium">Шлифовальные машины</span>
+              <Icon name="CircleSlash" size={18} />
+              <span className="text-xs font-medium leading-tight">Шлифмашины</span>
             </Button>
             <Button
               variant={selectedCategory === 'Обойные молотки' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('Обойные молотки')}
-              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+              className="h-20 flex flex-col items-center justify-center space-y-1 text-center px-2"
             >
-              <Icon name="Hammer" size={20} />
-              <span className="text-xs font-medium">Обойные молотки</span>
+              <Icon name="Hammer" size={18} />
+              <span className="text-xs font-medium leading-tight">Отбойники</span>
             </Button>
             <Button
               variant={selectedCategory === 'Дрели' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('Дрели')}
-              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+              className="h-20 flex flex-col items-center justify-center space-y-1 text-center px-2"
             >
-              <Icon name="Wrench" size={20} />
-              <span className="text-xs font-medium">Дрели</span>
+              <Icon name="Wrench" size={18} />
+              <span className="text-xs font-medium leading-tight">Дрели</span>
             </Button>
             <Button
               variant={selectedCategory === 'Оборудование для бетона' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('Оборудование для бетона')}
-              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+              className="h-20 flex flex-col items-center justify-center space-y-1 text-center px-2"
             >
-              <Icon name="Building" size={20} />
-              <span className="text-xs font-medium">Оборудование для бетона</span>
+              <Icon name="Building" size={18} />
+              <span className="text-xs font-medium leading-tight">Бетон</span>
             </Button>
             <Button
               variant={selectedCategory === 'Оборудование для дорожных работ' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('Оборудование для дорожных работ')}
-              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+              className="h-20 flex flex-col items-center justify-center space-y-1 text-center px-2"
             >
-              <Icon name="Truck" size={20} />
-              <span className="text-xs font-medium">Оборудование для дорожных работ</span>
+              <Icon name="Truck" size={18} />
+              <span className="text-xs font-medium leading-tight">Дорожные работы</span>
             </Button>
           </div>
         </div>
