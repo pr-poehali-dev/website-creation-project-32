@@ -70,6 +70,54 @@ const mockProducts = [
     category: 'Обойные молотки',
     image: '/img/d80f71aa-3109-421b-8343-55b33f31b579.jpg',
     description: 'Мощный отбойный молоток с антивибрационной системой'
+  },
+  {
+    id: 9,
+    name: 'Дрель Bosch GSB 1600 RE',
+    price: 3990,
+    category: 'Дрели',
+    image: '/img/ff13a2dd-6805-4943-b7dd-a84ad3f29300.jpg',
+    description: 'Мощная ударная дрель для дома и мастерской'
+  },
+  {
+    id: 10,
+    name: 'Дрель аккумуляторная Makita DF333D',
+    price: 8990,
+    category: 'Дрели',
+    image: '/img/ff13a2dd-6805-4943-b7dd-a84ad3f29300.jpg',
+    description: 'Компактная аккумуляторная дрель-шуруповёрт'
+  },
+  {
+    id: 11,
+    name: 'Бетоносмеситель Lescha CM-160L',
+    price: 24990,
+    category: 'Оборудование для бетона',
+    image: '/img/2713a0fc-d260-499b-b673-c54d290d185d.jpg',
+    description: 'Профессиональный бетоносмеситель 160 литров'
+  },
+  {
+    id: 12,
+    name: 'Вибратор для бетона Elitech ПБ 38М',
+    price: 12990,
+    category: 'Оборудование для бетона',
+    image: '/img/2713a0fc-d260-499b-b673-c54d290d185d.jpg',
+    description: 'Погружной вибратор для уплотнения бетона'
+  },
+  {
+    id: 13,
+    name: 'Каток дорожный Bomag BW 100 AC-4',
+    price: 890000,
+    category: 'Оборудование для дорожных работ',
+    image: '/img/0d902355-e0d8-4525-a263-8f10a37c8a2c.jpg',
+    description: 'Профессиональный виброкаток для дорожного строительства'
+  },
+  {
+    id: 14,
+    name: 'Уплотнитель Wacker Neuson BS 50-4As',
+    price: 65990,
+    category: 'Оборудование для дорожных работ',
+    image: '/img/0d902355-e0d8-4525-a263-8f10a37c8a2c.jpg',
+    description: 'Вибротрамбовка для уплотнения грунта и асфальта'
   }
 ];
 
@@ -78,7 +126,7 @@ export default function Index() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [cart, setCart] = useState<number[]>([]);
 
-  const categories = ['all', 'Перфораторы', 'Шлифовальные машины', 'Обойные молотки'];
+  const categories = ['all', 'Перфораторы', 'Шлифовальные машины', 'Обойные молотки', 'Дрели', 'Оборудование для бетона', 'Оборудование для дорожных работ'];
 
   const filteredProducts = mockProducts.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -172,38 +220,62 @@ export default function Index() {
       <section className="bg-gray-50 border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <h3 className="text-lg font-semibold text-gray-900 mb-6 text-center">Выберите категорию</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
             <Button
               variant={selectedCategory === 'all' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('all')}
               className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
             >
-              <Icon name="Grid3X3" size={24} />
-              <span className="text-sm font-medium">Все товары</span>
+              <Icon name="Grid3X3" size={20} />
+              <span className="text-xs font-medium">Все товары</span>
             </Button>
             <Button
               variant={selectedCategory === 'Перфораторы' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('Перфораторы')}
               className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
             >
-              <Icon name="Drill" size={24} />
-              <span className="text-sm font-medium">Перфораторы</span>
+              <Icon name="Drill" size={20} />
+              <span className="text-xs font-medium">Перфораторы</span>
             </Button>
             <Button
               variant={selectedCategory === 'Шлифовальные машины' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('Шлифовальные машины')}
               className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
             >
-              <Icon name="CircleSlash" size={24} />
-              <span className="text-sm font-medium">Шлифовальные машины</span>
+              <Icon name="CircleSlash" size={20} />
+              <span className="text-xs font-medium">Шлифовальные машины</span>
             </Button>
             <Button
               variant={selectedCategory === 'Обойные молотки' ? 'default' : 'outline'}
               onClick={() => setSelectedCategory('Обойные молотки')}
               className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
             >
-              <Icon name="Hammer" size={24} />
-              <span className="text-sm font-medium">Обойные молотки</span>
+              <Icon name="Hammer" size={20} />
+              <span className="text-xs font-medium">Обойные молотки</span>
+            </Button>
+            <Button
+              variant={selectedCategory === 'Дрели' ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory('Дрели')}
+              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+            >
+              <Icon name="Wrench" size={20} />
+              <span className="text-xs font-medium">Дрели</span>
+            </Button>
+            <Button
+              variant={selectedCategory === 'Оборудование для бетона' ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory('Оборудование для бетона')}
+              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+            >
+              <Icon name="Building" size={20} />
+              <span className="text-xs font-medium">Оборудование для бетона</span>
+            </Button>
+            <Button
+              variant={selectedCategory === 'Оборудование для дорожных работ' ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory('Оборудование для дорожных работ')}
+              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+            >
+              <Icon name="Truck" size={20} />
+              <span className="text-xs font-medium">Оборудование для дорожных работ</span>
             </Button>
           </div>
         </div>
@@ -277,7 +349,8 @@ export default function Index() {
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#" className="hover:text-white transition-colors">Перфораторы</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Шлифовальные машины</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Обойные молотки</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Дрели</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Оборудование для бетона</a></li>
               </ul>
             </div>
             <div>
