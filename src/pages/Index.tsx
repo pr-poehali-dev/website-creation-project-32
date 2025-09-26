@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+
 import Icon from '@/components/ui/icon';
 
 const mockProducts = [
@@ -148,11 +148,11 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Search and Filters */}
+      {/* Search */}
       <section className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row gap-4 items-center">
-            <div className="flex-1 max-w-md">
+          <div className="flex justify-center">
+            <div className="w-full max-w-md">
               <div className="relative">
                 <Icon name="Search" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
                 <Input
@@ -164,21 +164,47 @@ export default function Index() {
                 />
               </div>
             </div>
-            <div className="w-full md:w-auto">
-              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                <SelectTrigger className="w-full md:w-48">
-                  <SelectValue placeholder="Выберите категорию" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">Все категории</SelectItem>
-                  {categories.slice(1).map(category => (
-                    <SelectItem key={category} value={category}>
-                      {category}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Category Filter Tiles */}
+      <section className="bg-gray-50 border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <h3 className="text-lg font-semibold text-gray-900 mb-6 text-center">Выберите категорию</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Button
+              variant={selectedCategory === 'all' ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory('all')}
+              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+            >
+              <Icon name="Grid3X3" size={24} />
+              <span className="text-sm font-medium">Все товары</span>
+            </Button>
+            <Button
+              variant={selectedCategory === 'Перфораторы' ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory('Перфораторы')}
+              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+            >
+              <Icon name="Drill" size={24} />
+              <span className="text-sm font-medium">Перфораторы</span>
+            </Button>
+            <Button
+              variant={selectedCategory === 'Шлифовальные машины' ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory('Шлифовальные машины')}
+              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+            >
+              <Icon name="CircleSlash" size={24} />
+              <span className="text-sm font-medium">Шлифовальные машины</span>
+            </Button>
+            <Button
+              variant={selectedCategory === 'Обойные молотки' ? 'default' : 'outline'}
+              onClick={() => setSelectedCategory('Обойные молотки')}
+              className="h-20 flex flex-col items-center justify-center space-y-2 text-center"
+            >
+              <Icon name="Hammer" size={24} />
+              <span className="text-sm font-medium">Обойные молотки</span>
+            </Button>
           </div>
         </div>
       </section>
