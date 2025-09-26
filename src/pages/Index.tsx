@@ -9,67 +9,67 @@ import Icon from '@/components/ui/icon';
 const mockProducts = [
   {
     id: 1,
-    name: 'iPhone 14 Pro',
-    price: 89990,
-    category: 'Электроника',
+    name: 'Перфоратор Bosch PBH 2100',
+    price: 15990,
+    category: 'Перфораторы',
     image: '/img/47d371c5-b0e9-4a35-94a3-49043fc1f12d.jpg',
-    description: 'Новейший смартфон Apple с мощным процессором A16 Bionic'
+    description: 'Профессиональный перфоратор для бетона и кирпича'
   },
   {
     id: 2,
-    name: 'MacBook Air M2',
-    price: 119990,
-    category: 'Электроника',
+    name: 'Перфоратор Makita HR2470',
+    price: 18990,
+    category: 'Перфораторы',
     image: '/img/47d371c5-b0e9-4a35-94a3-49043fc1f12d.jpg',
-    description: 'Ультратонкий ноутбук с чипом Apple M2 для профессионалов'
+    description: 'Мощный перфоратор с функцией отбойного молотка'
   },
   {
     id: 3,
-    name: 'AirPods Pro',
-    price: 24990,
-    category: 'Электроника',
+    name: 'Перфоратор DeWalt D25133K',
+    price: 22990,
+    category: 'Перфораторы',
     image: '/img/47d371c5-b0e9-4a35-94a3-49043fc1f12d.jpg',
-    description: 'Беспроводные наушники с активным шумоподавлением'
+    description: 'Компактный перфоратор для точных работ'
   },
   {
     id: 4,
-    name: 'Классическая рубашка',
-    price: 4990,
-    category: 'Одежда',
+    name: 'Шлифмашина Bosch GWS 750',
+    price: 6990,
+    category: 'Шлифовальные машины',
     image: '/img/5d0986b6-99af-4043-b6ef-7a638cd47c62.jpg',
-    description: 'Элегантная рубашка из хлопка премиум класса'
+    description: 'Угловая шлифовальная машина 125 мм'
   },
   {
     id: 5,
-    name: 'Джинсы Slim Fit',
-    price: 7990,
-    category: 'Одежда',
+    name: 'Шлифмашина Makita 9558HN',
+    price: 8990,
+    category: 'Шлифовальные машины',
     image: '/img/5d0986b6-99af-4043-b6ef-7a638cd47c62.jpg',
-    description: 'Стильные джинсы с зауженным кроем'
+    description: 'Компактная угловая шлифмашина для металла'
   },
   {
     id: 6,
-    name: 'Кроссовки Urban',
+    name: 'Шлифмашина DeWalt DWE4157',
     price: 12990,
-    category: 'Одежда',
+    category: 'Шлифовальные машины',
     image: '/img/5d0986b6-99af-4043-b6ef-7a638cd47c62.jpg',
-    description: 'Удобные городские кроссовки для активного образа жизни'
+    description: 'Мощная угловая шлифмашина 125 мм'
   },
   {
     id: 7,
-    name: 'Декоративная ваза',
-    price: 3490,
-    category: 'Дом и сад',
+    name: 'Отбойный молоток Bosch GSH 11 E',
+    price: 45990,
+    category: 'Обойные молотки',
     image: '/img/e0f80b4f-35e8-4a49-9c76-d70fb6c6617b.jpg',
-    description: 'Современная керамическая ваза для интерьера'
+    description: 'Профессиональный отбойный молоток для демонтажа'
   },
   {
     id: 8,
-    name: 'Ароматическая свеча',
-    price: 1990,
-    category: 'Дом и сад',
+    name: 'Отбойный молоток Makita HM1203C',
+    price: 52990,
+    category: 'Обойные молотки',
     image: '/img/e0f80b4f-35e8-4a49-9c76-d70fb6c6617b.jpg',
-    description: 'Натуральная свеча с расслабляющим ароматом'
+    description: 'Мощный отбойный молоток с антивибрационной системой'
   }
 ];
 
@@ -78,7 +78,7 @@ export default function Index() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [cart, setCart] = useState<number[]>([]);
 
-  const categories = ['all', 'Электроника', 'Одежда', 'Дом и сад'];
+  const categories = ['all', 'Перфораторы', 'Шлифовальные машины', 'Обойные молотки'];
 
   const filteredProducts = mockProducts.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -249,9 +249,9 @@ export default function Index() {
             <div>
               <h4 className="font-medium mb-4">Каталог</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Электроника</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Одежда</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Дом и сад</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Перфораторы</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Шлифовальные машины</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Обойные молотки</a></li>
               </ul>
             </div>
             <div>
