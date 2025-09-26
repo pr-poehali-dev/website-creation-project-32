@@ -1,14 +1,281 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Badge } from '@/components/ui/badge';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import Icon from '@/components/ui/icon';
 
-const Index = () => {
+const mockProducts = [
+  {
+    id: 1,
+    name: 'iPhone 14 Pro',
+    price: 89990,
+    category: 'Электроника',
+    image: '/img/47d371c5-b0e9-4a35-94a3-49043fc1f12d.jpg',
+    description: 'Новейший смартфон Apple с мощным процессором A16 Bionic'
+  },
+  {
+    id: 2,
+    name: 'MacBook Air M2',
+    price: 119990,
+    category: 'Электроника',
+    image: '/img/47d371c5-b0e9-4a35-94a3-49043fc1f12d.jpg',
+    description: 'Ультратонкий ноутбук с чипом Apple M2 для профессионалов'
+  },
+  {
+    id: 3,
+    name: 'AirPods Pro',
+    price: 24990,
+    category: 'Электроника',
+    image: '/img/47d371c5-b0e9-4a35-94a3-49043fc1f12d.jpg',
+    description: 'Беспроводные наушники с активным шумоподавлением'
+  },
+  {
+    id: 4,
+    name: 'Классическая рубашка',
+    price: 4990,
+    category: 'Одежда',
+    image: '/img/5d0986b6-99af-4043-b6ef-7a638cd47c62.jpg',
+    description: 'Элегантная рубашка из хлопка премиум класса'
+  },
+  {
+    id: 5,
+    name: 'Джинсы Slim Fit',
+    price: 7990,
+    category: 'Одежда',
+    image: '/img/5d0986b6-99af-4043-b6ef-7a638cd47c62.jpg',
+    description: 'Стильные джинсы с зауженным кроем'
+  },
+  {
+    id: 6,
+    name: 'Кроссовки Urban',
+    price: 12990,
+    category: 'Одежда',
+    image: '/img/5d0986b6-99af-4043-b6ef-7a638cd47c62.jpg',
+    description: 'Удобные городские кроссовки для активного образа жизни'
+  },
+  {
+    id: 7,
+    name: 'Декоративная ваза',
+    price: 3490,
+    category: 'Дом и сад',
+    image: '/img/e0f80b4f-35e8-4a49-9c76-d70fb6c6617b.jpg',
+    description: 'Современная керамическая ваза для интерьера'
+  },
+  {
+    id: 8,
+    name: 'Ароматическая свеча',
+    price: 1990,
+    category: 'Дом и сад',
+    image: '/img/e0f80b4f-35e8-4a49-9c76-d70fb6c6617b.jpg',
+    description: 'Натуральная свеча с расслабляющим ароматом'
+  }
+];
+
+export default function Index() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [cart, setCart] = useState<number[]>([]);
+
+  const categories = ['all', 'Электроника', 'Одежда', 'Дом и сад'];
+
+  const filteredProducts = mockProducts.filter(product => {
+    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         product.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  const addToCart = (productId: number) => {
+    setCart(prev => [...prev, productId]);
+  };
+
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('ru-RU', {
+      style: 'currency',
+      currency: 'RUB',
+      minimumFractionDigits: 0
+    }).format(price);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
+    <div className="min-h-screen bg-slate-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <h1 className="text-2xl font-bold text-gray-900">ONLINE STORE</h1>
+            </div>
+            <nav className="hidden md:flex space-x-8">
+              <a href="#" className="text-gray-500 hover:text-gray-900 transition-colors">Главная</a>
+              <a href="#" className="text-gray-500 hover:text-gray-900 transition-colors">Магазин</a>
+              <a href="#" className="text-gray-500 hover:text-gray-900 transition-colors">Категории</a>
+              <a href="#" className="text-gray-500 hover:text-gray-900 transition-colors">Контакты</a>
+            </nav>
+            <div className="flex items-center space-x-4">
+              <Button variant="ghost" size="sm">
+                <Icon name="Search" size={20} />
+              </Button>
+              <Button variant="ghost" size="sm">
+                <Icon name="User" size={20} />
+              </Button>
+              <Button variant="ghost" size="sm" className="relative">
+                <Icon name="ShoppingCart" size={20} />
+                {cart.length > 0 && (
+                  <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center text-xs">
+                    {cart.length}
+                  </Badge>
+                )}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Добро пожаловать в наш магазин
+            </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Качественные товары с доставкой по всей России
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Search and Filters */}
+      <section className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            <div className="flex-1 max-w-md">
+              <div className="relative">
+                <Icon name="Search" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Input
+                  type="text"
+                  placeholder="Поиск товаров..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10"
+                />
+              </div>
+            </div>
+            <div className="w-full md:w-auto">
+              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                <SelectTrigger className="w-full md:w-48">
+                  <SelectValue placeholder="Выберите категорию" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Все категории</SelectItem>
+                  {categories.slice(1).map(category => (
+                    <SelectItem key={category} value={category}>
+                      {category}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products Grid */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredProducts.map((product) => (
+            <Card key={product.id} className="group hover:shadow-lg transition-shadow duration-200">
+              <div className="aspect-square overflow-hidden rounded-t-lg bg-gray-100">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                />
+              </div>
+              <CardContent className="p-4">
+                <div className="mb-2">
+                  <Badge variant="secondary" className="text-xs">
+                    {product.category}
+                  </Badge>
+                </div>
+                <h3 className="font-semibold text-lg mb-2 text-gray-900">
+                  {product.name}
+                </h3>
+                <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                  {product.description}
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-xl font-bold text-primary">
+                    {formatPrice(product.price)}
+                  </span>
+                  <Button 
+                    onClick={() => addToCart(product.id)}
+                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                  >
+                    В корзину
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {filteredProducts.length === 0 && (
+          <div className="text-center py-12">
+            <Icon name="Search" className="mx-auto mb-4 text-gray-400" size={48} />
+            <h3 className="text-lg font-medium text-gray-900 mb-2">
+              Товары не найдены
+            </h3>
+            <p className="text-gray-600">
+              Попробуйте изменить поисковый запрос или фильтры
+            </p>
+          </div>
+        )}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-4">ONLINE STORE</h3>
+              <p className="text-gray-400">
+                Ваш надежный партнер в мире качественных товаров
+              </p>
+            </div>
+            <div>
+              <h4 className="font-medium mb-4">Каталог</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">Электроника</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Одежда</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Дом и сад</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-4">Поддержка</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">Доставка</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Возврат</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Гарантия</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-medium mb-4">Контакты</h4>
+              <ul className="space-y-2 text-gray-400">
+                <li>+7 (800) 123-45-67</li>
+                <li>info@store.ru</li>
+                <li>Москва, ул. Примерная, 1</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; 2024 ONLINE STORE. Все права защищены.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
-};
-
-export default Index;
+}
